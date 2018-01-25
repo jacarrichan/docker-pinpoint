@@ -2,7 +2,7 @@ version: '2'
 services:
   pinpoint-hbase:
     container_name: pinpoint-hbase
-    image: marcosamm/pinpoint-hbase:1.6.2
+    image: pinpoint-hbase:1.6.2
     restart: always
     expose:
       - "2181"
@@ -19,7 +19,7 @@ services:
   pinpoint-mysql:
     container_name: pinpoint-mysql
     restart: always
-    image: marcosamm/pinpoint-mysql:1.6.2
+    image: pinpoint-mysql:1.6.2
     ports:
       - "13306:3306"
     environment:
@@ -35,7 +35,7 @@ services:
     depends_on:
       - pinpoint-hbase
     container_name: pinpoint-collector
-    image: marcosamm/pinpoint-collector:1.6.2
+    image: pinpoint-collector:1.6.2
     restart: always
     expose:
       - "9994"
@@ -65,7 +65,7 @@ services:
       - pinpoint-hbase
       - pinpoint-mysql
     container_name: pinpoint-web
-    image: marcosamm/pinpoint-web:1.6.2
+    image: pinpoint-web:1.6.2
     restart: always
     expose:
       - "8080"
